@@ -1,0 +1,100 @@
+<!-- Projectinfo.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Information</title>
+    <link rel="stylesheet" href="styles.css">
+</head>>
+    <header class="navbar">
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="Projectinfo.html" class="model-btn">Project Info</a>
+            <a href="modelinfo.html" class="info2-btn">Model Info</a>
+            <a href="login.html" class="login-btn">LOGIN</a>
+        </nav>
+    </header> 
+    <div class="container">
+        <h1>Pothole Detection Using CNN</h1>
+        <div class="columns">
+            <!-- Left Column -->
+            <div class="column">
+                <h2>Description</h2>
+                <p>Our project aims to develop a deep learning system for detecting potholes using images or
+                    videos captured by mobile devices, drones, or mounted cameras. It employs <strong>Convolutional Neural Networks (CNNs)</strong> to identify and locate potholes, enhancing road safety and enabling proactive maintenance.</p>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQWKND222PAahm3CMG1l5GyhZIy2A5ffiJaQ&s"class="cnn-image">
+                <h2>Key Components and Implementation Details</h2>
+                <h3>1. Problem Statement</h3>
+                <p>The project focuses on building a system to detect potholes on roads using CNNs. This detection system is essential for:</p>
+                <ul>
+                    <li>Proactively maintaining roads.</li>
+                    <li>Enhancing road safety.</li>
+                </ul>
+                <h3>2. Data:</h3>
+                <ul>
+                    <li><strong>Dataset Source:</strong> Kaggle</li>
+                    <li><strong>Data Characteristics:</strong>
+                        <ul>
+                            <li>Contains images of road surfaces with potholes.</li>
+                            <li>Includes labeled pothole and non-pothole examples.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Right Column -->
+            <div class="column">
+                <h3>3. Technologies and Tools:</h3>
+                <ul>
+                    <li><strong>Backend Frameworks:</strong> Python for training and deployment.</li>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS26N2tRw3tK6LbVqiwLz8mrzGcEvrcUCfdlQ&s"class="small-image">
+                    <li><strong>Machine Learning Frameworks:</strong>
+                        <ul>
+                            <li>TensorFlow/Keras or PyTorch for building CNN models.</li>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrsr-6QIkXKu0SH9_Oh6jr3GqIOMHDF29RiQ&s"class="small-image">
+                            <li>Optimization techniques like gradient descent.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Frontend:</strong> React, HTML, CSS, JavaScript.</li>
+                    <div style="display: flex;gap: 0px"> 
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBLimkxKgVwum5XDrN89s2lmt_EFlBdJeItA&s" class="small-image"> 
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMfuaIHKwUoQPEpEE_m7yFZqpjwCEFuhNCxA&s" class="small-image"> </div>
+                </ul>
+                <h3>4. Model Design and Training Process:</h3>
+                <ul>
+                    <li><strong>CNN Architecture Design:</strong>
+                        <ul>
+                            <li>Include convolutional, pooling, and fully connected layers.</li>
+                            <li>Employ activation functions (e.g., ReLU) and loss functions (e.g., Cross-Entropy).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Data Preprocessing:</strong>
+                        <ul>
+                            <li>Image resizing, normalization, and augmentation.</li>
+                            <li>Split data into training, validation, and test sets.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>5. Advanced Features:</h3>
+                <ul>
+                    <li>Use pre-trained models or transfer learning (e.g., VGG16, ResNet).</li>
+                    <li>Hyperparameter tuning to refine model parameters.</li>
+                </ul>
+                <h3>6. Expected Output:</h3>
+                <ul>
+                    <li>The trained CNN model should output:
+                        <ul>
+                            <li>Locations of potholes in the image.</li>
+                            <li>Probability/confidence score for each detection.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <a href="https://drive.google.com/file/d/1DJyYHZNHdpXBHPpc3MlBi4Dbyi0W1yF3/view?usp=drive_link" target="_blank" class="btn">Watch Mentor's Project Video</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

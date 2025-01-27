@@ -1,0 +1,233 @@
+/* style.css */
+
+/* General styles */
+body, html {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensure body takes up the full height */
+    background: grey;
+    color: black;
+    overflow: hidden; /*Prevent scrolling */
+}
+
+h1 {
+    font-size: 48px;
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    text-align: center;
+    color: white;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: white;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 30px auto; 
+    padding: 20px;
+    background: #fff;
+    border-radius:20px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+header.navbar {
+    background: black;
+    padding: 15px;
+    /* display: flex; */
+    /* justify-content: space-between; */
+    /* align-items: center; */
+    color: #fff;
+}
+
+header.navbar a {
+    margin-right: 30px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+header.navbar .login-btn {
+    color: #fff;
+    background: #444;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: 1px solid #555;
+}
+
+/* Home container to use the image as the background */
+.home-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+    background-image: url('pothole.webp.jpg'); /* Pothole image as background */
+    background-size: cover; /* Make sure the image covers the whole container */
+    background-position: center; /* Center the image */
+    background-attachment: fixed; /* Image stays fixed while scrolling */
+    text-align: center; /* Center text inside the container */
+    position: relative;
+    color: white; /* Text color should be white for readability */
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+/* Text section with semi-transparent background to ensure readability */
+.text-section {
+    position: relative; /* Relative positioning to place text over the image */
+    max-width: 600px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background for text visibility */
+    border-radius: 10px;
+    color: white;
+}
+
+/* Login and Signup Forms */
+.form-container {
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 25px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.form-container h2 {
+    margin-bottom: 25px;
+    color: black;
+}
+
+.form-container input {
+    width: 95%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-container button {
+    width: 90%;
+    padding: 12px;
+    border: none;
+    background: #333;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-container p {
+    margin-top: 20px;
+    color:black;
+}
+
+.image-grid {
+    display: flex;
+    gap: 15px;
+}
+
+.columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.column {
+    flex: 1;
+    min-width: 320px;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .columns {
+        flex-direction: column;
+    }
+}
+.cnn-image{
+    width: 50%; /* or any other size you prefer */
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid rgba(240, 240, 240, 0.6);
+    display: block; /* Makes the image a block element */ 
+    margin: 0 auto;
+}
+/* Small image styles */
+.small-image {
+    width: 75px; /* Set the width to the desired square size */
+    height: 75px; /* Match the height to the width */
+    object-fit: cover; /* Ensures the image fills the square without distortion */
+    border-radius: 10px; /* Optional: for rounded corners */
+    border: 2px solid rgba(240, 240, 240, 0.6);
+    display: block; /* Makes the image a block element */
+    margin: 0 auto;
+    justify-content: space-between;
+}    
+
+.stats {
+    margin: 20px 0;
+    padding: 20px;
+    background: #eef1f7;
+    /* border-left: 5px solid #007bff;
+    border-right: 5px solid #007bff;
+    border-top: 5px solid #007bff;
+    border-bottom: 5px solid #007bff; */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.dataset-info, .accuracy-info, .results-info {
+    margin-bottom: 20px;
+}
+ul {
+    padding-left: 20px;
+}
+
+
+
+/* Sidebar Styles */
+/* .sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #444;
+    color: white;
+    overflow-y: auto;
+    transition: 0.3s;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); 
+}
+
+.sidebar a {
+    display:flex;
+    color: white;
+    text-decoration: none;
+    margin: 10px 0;
+}
+
+.sidebar a:hover {
+    background-color: #575757;
+    border-radius: 5px;
+}
+
+.toggle-btn {
+    cursor: pointer;
+    background-color: #444;
+    color: white;
+    border: none; 
+    padding:8px 5px;
+    border-radius: 5px;
+}  */

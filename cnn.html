@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pothole Detector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        #container {
+            text-align: center;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        #result strong {
+            color: #000;
+        }
+
+        #uploadedImage {
+            margin-top: 20px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Pothole Detector</h1>
+        <form id="uploadForm">
+            <input type="file" id="fileInput" accept="image/*" required>
+            <br>
+            <button type="submit">Upload</button>
+        </form>
+        <p id="result"></p>
+        <img id="uploadedImage" style="display: none;" alt="Uploaded Image">
+    </div>
+    <script>
+        const form = document.getElementById('uploadForm');
+        const result = document.getElementById('result');
+        const uploadedImage = document.getElementById('uploadedImage');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const fileInput = document.getElementById('fileInput').files[0];
+
+            console.log(fileInput); // Log the file input to check if it's correct
+
+            if (!fileInput) {
+                result.textContent = "Please upload a file.";
+                console.error("No file selected"); // log the error for debugging
+                return;
+            }
+
+            // Display the uploaded image
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                uploadedImage.style.display = "block";
+                uploadedImage.src = e.target.result; // Set the image source to the uploaded file
+            };
+            reader.readAsDataURL(fileInput);
+
+            const formData = new FormData();
+            formData.append('file', fileInput);
+
+            try {
+                const response = await fetch('http://127.0.0.1:5001/predict', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    result.textContent = `Error: ${error.error}`;
+                    return;
+                }
+
+                const data = await response.json();
+                const potholeConfidence = (data.class_probabilities.Pothole * 100).toFixed(2);
+                const normalConfidence = (data.class_probabilities.Normal * 100).toFixed(2);
+
+                result.innerHTML = `
+                    <strong>Prediction:</strong> ${data.prediction}<br>
+                    <strong>Pothole Confidence:</strong> ${potholeConfidence}%<br>
+                    <strong>Normal Confidence:</strong> ${normalConfidence}%
+                `;
+            } catch (error) {
+                result.textContent = `Error: ${error.message}`;
+                console.error(error); // log the error to the console
+            }
+        });
+    </script>
+</body>
+</html>

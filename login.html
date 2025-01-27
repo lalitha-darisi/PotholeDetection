@@ -1,0 +1,38 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="Projectinfo.html" class="info1-btn">Project Info</a>
+            <a href="modelinfo.html" class="info2-btn">Model Info</a>
+            <a href="login.html" class="login-btn">LOGIN</a>
+        </nav>
+    </header>
+    <div class="form-container">
+        <h2>Login</h2> 
+        <form onsubmit="handleLogin(event)">
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+        <a href="home.html">Back to Home</a>
+    </div>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault(); // Prevent form submission
+            window.location.href = "dashboard.html"; // Redirect to dashboard after login
+        }
+    </script>
+</body>
+</html>

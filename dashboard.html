@@ -1,0 +1,39 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="login.html">Logout</a>
+        </nav>
+    </header>
+
+    <div class="button-container">
+        <h1>Welcome to the Dashboard</h1>
+        <button onclick="redirectToPotholeDetection()">CNN WITH PYTORCH</button>
+        <button onclick="redirectToCode2()">ANN WITH SCRATCH</button>
+        <button onclick="redirectToCode3()">ANN FROM PYTORCH</button>
+    </div>
+
+    <script>
+        function redirectToPotholeDetection() {
+            window.location.href = "cnn.html"; // Redirect to pothole detector page
+        }
+
+        function redirectToCode2() {
+            window.location.href = "code2.html"; // Placeholder for Code 2
+        }
+
+        function redirectToCode3() {
+            window.location.href = "ann2.html"; // Placeholder for Code 3
+        }
+    </script>
+</body>
+</html>
